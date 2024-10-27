@@ -88,6 +88,7 @@ export function Navbar() {
             ))}
           </ul>
           <button
+            aria-labelledby="Close navigation drawer"
             className="nav_btn_close lg:hidden"
             onClick={handleOpenSidebarDrawer}
           >
@@ -105,6 +106,8 @@ export function Navbar() {
           </button>
         </a>
         <button
+          aria-labelledby="Navigation drawer"
+          title="Navigation menu"
           className="text-yellow-500 lg:hidden"
           onClick={handleOpenSidebarDrawer}
         >
