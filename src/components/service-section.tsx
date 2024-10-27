@@ -4,6 +4,11 @@ import { useAppSelector } from "../hooks/useStore";
 import { useAppDispatch } from "../hooks/useDispatch";
 import { fetchServiceListRequest } from "../store/service-actions";
 
+import bg1URL from "../../public/pattern_1.svg";
+import bg2URL from "../../public/pattern_2.svg";
+import bg3URL from "../../public/pattern_3.png";
+import bg4URL from "../../public/pattern_4.svg";
+
 type Service = {
   id: number;
   title: string;
@@ -47,24 +52,18 @@ export function ServiceItem(props: Service) {
 function BackgroundsImage() {
   return (
     <>
+      <img src={bg1URL} className="absolute top-0 right-0 -z-10" />
       <img
-        src="../public/pattern_1.svg"
-        className="absolute top-0 right-0 -z-10"
-      />
-      <img
-        src="../public/pattern_2.svg"
+        src={bg2URL}
         className="absolute left-0 -z-10"
         style={{ top: "20%" }}
       />
       <img
-        src="../public/pattern_3.png"
+        src={bg3URL}
         className="absolute -z-10"
         style={{ top: "33%", right: "-33%" }}
       />
-      <img
-        src="../public/pattern_4.svg"
-        className="absolute left-0 bottom-0 -z-10"
-      />
+      <img src={bg4URL} className="absolute left-0 bottom-0 -z-10" />
     </>
   );
 }
