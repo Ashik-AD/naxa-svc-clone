@@ -1,5 +1,107 @@
 body {
-  font-family: sans-serif, Arial, Helvetica;
   line-height: 1.15;
+  font-family:
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
   font-size: 1rem;
+  color: #333132;
+  overflow-x: hidden;
+}
+
+.nav__item:hover,
+.nav__item:focus,
+.nav__item:focus-within {
+  .child__nav__wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    transition-duration: 400ms;
+  }
+}
+.child__nav__wrapper::after {
+  position: absolute;
+  content: "";
+  border: 0.8rem solid #fff;
+  border-inline-color: transparent;
+  border-top-color: transparent;
+  top: -1rem;
+  left: 2.4rem;
+}
+.subnav .nav__item:hover {
+  background: rgb(255 238 17 / 46%);
+}
+.cto__highlight {
+  color: blue;
+}
+
+.service_item {
+  container-type: inline-size;
+
+  @container (width > 920px) {
+    /* Reverse the column */
+    &:nth-child(even) .item__info {
+      grid-column-start: 1;
+      grid-row-start: 1;
+    }
+  }
+  .item__banner {
+    width: min(90%, 480px);
+    height: auto;
+    margin-inline: auto;
+  }
+}
+.nav_list_wrapper {
+  transition: all 300ms;
+  .overlay {
+    visibility: hidden;
+    opacity: 0.2;
+    transition: all 200ms;
+  }
+}
+.drawer-active {
+  width: 100%;
+  opacity: 1;
+  transition: 400ms ease-in-out;
+  right: 0;
+
+  .overlay {
+    visibility: visible;
+    opacity: 0.5;
+    transition: all 200ms;
+  }
+}
+.nav_btn_close {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  padding: 1rem;
+
+  .bar {
+    position: relative;
+    height: 4px;
+    width: 1.6rem;
+    background: blue;
+    border-radius: 4px;
+
+    &.bar_first {
+      transform: rotate(45deg);
+      top: 2px;
+    }
+    &.bar_last {
+      transform: rotate(-45deg);
+      top: -2px;
+    }
+  }
+}
+.nav_btn_close:has(.drawer-active) {
+  background: red !important;
 }
