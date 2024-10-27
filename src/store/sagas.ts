@@ -18,7 +18,15 @@ async function fetchServices(): Promise<Service[]> {
 function* fetchServiceListSaga(): Generator<any, any, Service[]> {
   try {
     const res = yield call(fetchServices);
-    yield put(fetchServiceListSuccess(res));
+
+    let sortedByOrder = res.sort((t, tn) => {
+      if (t.service_order < tn.service_order) {
+        return -1;
+      }
+      return 1;
+    });
+
+    yield put(fetchServiceListSuccess(sortedByOrder));
   } catch (error: any) {
     yield put(fetchServiceListFailed(error.message));
   }
