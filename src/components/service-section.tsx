@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "../App";
+import Container from "./container";
 
 type Service = {
   id: number;

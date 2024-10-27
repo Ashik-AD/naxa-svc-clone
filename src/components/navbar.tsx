@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { Container } from "../App";
 import { TiArrowRight } from "react-icons/ti";
 import { FaAngleDown } from "react-icons/fa";
 import { CgMenuRightAlt } from "react-icons/cg";
@@ -13,7 +12,7 @@ import iconMedia from "../../public/icons/media.svg";
 import iconPublication from "../../public/icons/publications.svg";
 
 import logo from "../../public/logo.png";
-
+import Container from "./container";
 
 const navList = [
   { label: "Service", path: "/service" },
