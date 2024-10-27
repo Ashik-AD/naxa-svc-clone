@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
-import { TiArrowRight, TiArrowUp } from "react-icons/ti";
+import { TiArrowRight } from "react-icons/ti";
 import { Navbar } from "./components/navbar";
 import { ServiceSection } from "./components/service-section";
 import Container from "./components/container";
+import ScrollTopButton from "./components/scroll-button";
 
 function App() {
   return (
@@ -56,35 +56,3 @@ function App() {
 }
 
 export default App;
-
-function ScrollTopButton() {
-  let btnRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    window.onscroll = function () {
-      if (btnRef.current) {
-        if (window.scrollY > 400) {
-          btnRef.current.style.bottom = "24px";
-        } else {
-          btnRef.current.style.bottom = "-60px";
-        }
-      }
-    };
-  }, [btnRef.current]);
-
-  function handleScrollTop() {
-    scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  return (
-    <button
-      className="fixed flex -bottom-16 transition-bottom duration-300 right-6 z-10 h-12 w-12 items-center justify-center rounded-3xl bg-orange-400 hover:bg-orange-300"
-      ref={btnRef}
-      onClick={handleScrollTop}
-    >
-      <i className="flex">
-        <TiArrowUp size={24} />
-      </i>
-    </button>
-  );
-}
