@@ -81,14 +81,26 @@ export function ServiceSection() {
       className="py-24 relative z-10 min-h-screen overflow-hidden"
       style={{ background: "#f4f4f4" }}
     >
-      <Container className="flex flex-col gap-y-28 z-10">
-        {loading ? <h2>Loading...</h2> : null}
-        {error ? <h2>{error}</h2> : null}
-        {services?.map((service) => (
-          <ServiceItem key={service.id} {...service} />
-        ))}
-      </Container>
-      <BackgroundsImage />
+      {loading ? (
+        <div className="flex items-center justify-center w-full h-screen">
+          <h3 className="text-xl text-yellow-500">Loading...</h3>
+        </div>
+      ) : null}
+      {error ? (
+        <div className="flex items-center justify-center w-full h-screen">
+          <h3 className="text-xl text-red-500">{error}</h3>
+        </div>
+      ) : null}
+      {services?.length > 0 ? (
+        <>
+          <Container className="flex flex-col gap-y-28 z-10">
+            {services?.map((service) => (
+              <ServiceItem key={service.id} {...service} />
+            ))}
+          </Container>
+          <BackgroundsImage />
+        </>
+      ) : null}
     </section>
   );
 }
