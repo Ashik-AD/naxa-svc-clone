@@ -55,24 +55,28 @@ function BackgroundsImage() {
       <img
         src={bg1URL}
         className="absolute top-0 right-0 -z-10"
-        alt="background pattern"
+        alt="pattern top"
+        aria-hidden
       />
       <img
         src={bg2URL}
         className="absolute left-0 -z-10"
-        alt="background pattern"
+        alt="pattern middle left"
         style={{ top: "20%" }}
+        aria-hidden
       />
       <img
         src={bg3URL}
         className="absolute -z-10"
-        alt="background pattern"
+        alt="pattern middle right"
         style={{ top: "33%", right: "-33%" }}
+        aria-hidden
       />
       <img
         src={bg4URL}
         className="absolute left-0 bottom-0 -z-10"
-        alt="background pattern"
+        alt="pattern bottom"
+        aria-hidden
       />
     </>
   );

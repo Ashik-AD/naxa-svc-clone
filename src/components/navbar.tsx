@@ -88,7 +88,7 @@ export function Navbar() {
             ))}
           </ul>
           <button
-            aria-labelledby="Close navigation drawer"
+            aria-label="Close navigation"
             className="nav_btn_close lg:hidden"
             onClick={handleOpenSidebarDrawer}
           >
@@ -98,7 +98,7 @@ export function Navbar() {
           <div className="overlay fixed w-screen h-screen bg-yellow-300 top-0 right-0 -z-10 lg:hide"></div>
         </div>
         <a href={"/contact/imbusiness"}>
-          <button className="group flex items-center justify-center h-8 bg-yellow-300 px-6 text-xs text-blue-600 font-semibold sm:text-sm sm:w-36 lg:h-10 hover:bg-orange-400">
+          <button className="group flex items-center justify-center h-8 bg-yellow-300 px-6 text-xs text-blue-700 font-semibold sm:text-sm sm:w-36 lg:h-10 hover:bg-orange-400">
             Let's Talk
             <i className="flex invisible -ml-6 text-2xl transition-m duration-200 opacity-0 group-hover:ml-1 group-hover:opacity-100 group-hover:visible">
               <TiArrowRight />
@@ -155,7 +155,7 @@ function NavItem(props: NavItem) {
         className="relative flex gap-4 items-center px-4 py-2 text-sm font-medium text-nowrap xl:text-base"
       >
         {props.icon && (
-          <img src={props.icon} className="w-6" alt={props.label} />
+          <img src={props.icon} className="w-6" alt={`${props.label} icon`} />
         )}
         {props.label}
       </a>

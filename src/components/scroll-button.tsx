@@ -20,6 +20,7 @@ export default function ScrollTopButton() {
 
   return (
     <button
+      aria-label="Scroll top"
       className="fixed flex -bottom-16 transition-bottom duration-300 right-6 z-10 h-12 w-12 items-center justify-center rounded-3xl bg-orange-400 hover:bg-orange-300"
       ref={btnRef}
       onClick={handleScrollTop}
