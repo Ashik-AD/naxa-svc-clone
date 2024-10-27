@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Container from "./container";
+import { useAppSelector } from "../hooks/useStore";
+import { useAppDispatch } from "../hooks/useDispatch";
+import { fetchServiceListRequest } from "../store/service-actions";
 
 type Service = {
   id: number;
@@ -66,42 +69,12 @@ function BackgroundsImage() {
   );
 }
 
-
 export function ServiceSection() {
-  const [list, setList] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const { loading, services, error } = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    let fetchServiceList = null;
-
-    fetchServiceList = async () => {
-      try {
-        setLoading(true);
-        let res = await fetch(
-          "https://admin.naxa.com.np/api/services?format=json",
-        );
-        let data = (await res.json()) as Service[];
-        let transformData = data.sort((x, y) => {
-          if (x.service_order < y.service_order) {
-            return -1;
-          }
-          return 1;
-        });
-        setList(transformData);
-      } catch (err: any) {
-        if (err?.message) {
-          setError(err?.message);
-          return;
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchServiceList();
-    return () => {
-      fetchServiceList = null;
-    };
+    dispatch(fetchServiceListRequest());
   }, []);
 
   return (
@@ -112,10 +85,11 @@ export function ServiceSection() {
       <Container className="flex flex-col gap-y-28 z-10">
         {loading ? <h2>Loading...</h2> : null}
         {error ? <h2>{error}</h2> : null}
-        {list?.map((service) => <ServiceItem key={service.id} {...service} />)}
+        {services?.map((service) => (
+          <ServiceItem key={service.id} {...service} />
+        ))}
       </Container>
       <BackgroundsImage />
     </section>
   );
 }
-
