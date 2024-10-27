@@ -68,7 +68,6 @@ export function Navbar() {
   let drawerRef = useRef<HTMLDivElement>(null);
 
   function handleOpenSidebarDrawer() {
-    console.log("hello");
     if (drawerRef?.current) {
       drawerRef.current.classList.toggle("drawer-active");
     }
