@@ -7,16 +7,7 @@ import CallToAction from "./components/call-to-action";
 function App() {
   return (
     <>
-      <header
-        className="flex flex-col gap-3 bg-cover pb-12"
-        style={{
-          background: `url(../public/header_banner.jpg)`,
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "right",
-          backgroundColor: "#fff",
-        }}
-      >
+      <header className="service_header flex flex-col gap-3 bg-cover pb-12">
         <TopBanner />
         <Navbar />
         <CallToAction />

@@ -18,6 +18,14 @@ body {
   overflow-x: hidden;
 }
 
+.service_header {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-image: url("../public/header_banner.jpg");
+  background-color: #ffffff;
+}
+
 .nav__item:hover,
 .nav__item:focus,
 .nav__item:focus-within {
