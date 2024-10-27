@@ -1,7 +1,8 @@
-import { HTMLAttributes, ReactNode, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { TiArrowRight, TiArrowUp } from "react-icons/ti";
 import { Navbar } from "./components/navbar";
 import { ServiceSection } from "./components/service-section";
+import Container from "./components/container";
 
 function App() {
   return (
@@ -55,21 +56,6 @@ function App() {
 }
 
 export default App;
-
-export function Container({
-  children,
-  className,
-}: {
-  children: ReactNode;
-} & HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={`container px-4 mx-auto sm:px-8 xl:px-4 2xl:px-0 w-full sm:max-w-[46rem] md:max-w-[960px] lg:max-w-[1100px] min-[1400px]:max-w-[1300px] 2xl:max-w-[1400px] ${className || ""}`}
-    >
-      {children}
-    </div>
-  );
-}
 
 function ScrollTopButton() {
   let btnRef = useRef<HTMLButtonElement>(null);
