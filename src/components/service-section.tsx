@@ -52,18 +52,28 @@ export function ServiceItem(props: Service) {
 function BackgroundsImage() {
   return (
     <>
-      <img src={bg1URL} className="absolute top-0 right-0 -z-10" />
+      <img
+        src={bg1URL}
+        className="absolute top-0 right-0 -z-10"
+        alt="background pattern"
+      />
       <img
         src={bg2URL}
         className="absolute left-0 -z-10"
+        alt="background pattern"
         style={{ top: "20%" }}
       />
       <img
         src={bg3URL}
         className="absolute -z-10"
+        alt="background pattern"
         style={{ top: "33%", right: "-33%" }}
       />
-      <img src={bg4URL} className="absolute left-0 bottom-0 -z-10" />
+      <img
+        src={bg4URL}
+        className="absolute left-0 bottom-0 -z-10"
+        alt="background pattern"
+      />
     </>
   );
 }
